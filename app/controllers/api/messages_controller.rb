@@ -20,12 +20,12 @@ class Api::MessagesController < ApplicationController
 
   # POST /api/conversation/:conversation_id/messages
   def create
-    message = @conversation.messages.new message_params
-    message.user_id = 1
-    if message.save
-      render json: { success: true, message: MessagesSerializer.new(message) }
+    @message = @conversation.messages.new message_params
+    @message.user = current_user
+    if @message.save
+      render layout: false
     else
-      render json: { success: false, errors: message.errors.full_messages.join(", ") }
+      render json: { success: false, errors: @message.errors.full_messages.join(", ") }
     end
   end
 

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="message-wrap col-lg-8">
-            <div class="msg-wrap">
+            <div class="msg-wrap" id="message-area">
                 <% Message.all.each do |message|%>
                 <div class="media msg "> 
                     <div class="media-body">
@@ -15,10 +15,10 @@
                 <% end %>
             </div>
             <div class="send-wrap ">
-                <textarea class="form-control send-message" rows="3" placeholder="Write a reply..."></textarea>
+                <textarea class="form-control send-message" rows="3" placeholder="Write a reply..." id="reply"></textarea>
             </div>
             <div class="btn-panel">
-                <a href="" class=" col-lg-3 btn" role="button"><i class="fa fa-plus"></i> Send message</a>
+                <a href="" class=" col-lg-3 btn" role="button" id="send-message"><i class="fa fa-plus"></i> Send message</a>
             </div>
         </div>
     </div>
