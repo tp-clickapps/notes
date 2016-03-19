@@ -9,4 +9,12 @@
 #
 
 class Conversation < ActiveRecord::Base
+
+  # Associations
+  has_many :messages, dependent: :destroy
+  has_and_belongs_to_many :users
+
+  # Validations
+  
+
 end
