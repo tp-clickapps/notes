@@ -6,6 +6,6 @@ class MessagesSerializer < ActiveModel::Serializer
   end
 
   def time
-    object.created_at.strftime("%H:%M: %p")
+    object.created_at.strftime("%H:%M %p")
   end
 end
