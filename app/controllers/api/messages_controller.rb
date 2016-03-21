@@ -8,8 +8,14 @@ class Api::MessagesController < ApplicationController
 
   # GET /api/conversation/:conversation_id/messages
   def index
-    @messages = @conversation.messages
-    render layout: false
+    if params[:last_fetch].present?
+      date = DateTime.parse params[:last_fetch]
+      @messages = @conversation.messages.where("created_at > ?", date)
+    else
+      @messages = @conversation.messages
+    end
+    render json: { success: true, 
+                   messages: ActiveModel::ArraySerializer.new(messages, each_serializer: MessagesSerializer) }
   end
 
   # GET /api/conversation/:conversation_id/messages/:id

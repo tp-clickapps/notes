@@ -17,11 +17,13 @@
 //= require_tree .
 
 
+$last_fetch = Date.now();
+
 $pull_chat = function(){
 	$.ajax({
-		url: '/api/conversations/1/messages',
+		url: '/api/conversations/1/messages?last_fetch=' + $last_fetch,
 		success: function(data){
-			$('div#message-area').html(data);
+			$('div#message-area').append(data);
 		}
 	});
 }
