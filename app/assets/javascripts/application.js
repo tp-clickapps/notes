@@ -15,3 +15,13 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+
+$pull_chat = function(){
+	$.ajax({
+		url: '/api/conversations/1/messages',
+		success: function(data){
+			$('div#message-area').html(data);
+		}
+	});
+}

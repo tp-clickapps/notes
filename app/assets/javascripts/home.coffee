@@ -15,3 +15,9 @@ $(document).on 'click', 'a#send-message', (e) ->
 		error: (e) ->
 			alert 'Error'
 	false
+
+$(document).on 'page:change', (e) ->
+  setInterval (->
+    $pull_chat()
+    return
+  ), 1000

@@ -1,0 +1,11 @@
+<% @messages.each do |msg| %>
+<div class="media msg "> 
+    <div class="media-body">
+        <small class="pull-right time">
+            <i class="fa fa-clock-o"></i> <%= msg.created_at.strftime("%H:%M %p") %>
+        </small>
+        <h5 class="media-heading"><%= msg.user.name %></h5>
+        <small class="col-lg-10"><%= msg.body %></small>
+    </div>
+</div>
+<% end %>

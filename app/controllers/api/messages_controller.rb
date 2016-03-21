@@ -8,9 +8,8 @@ class Api::MessagesController < ApplicationController
 
   # GET /api/conversation/:conversation_id/messages
   def index
-    messages = @conversation.messages
-    render json: { success: true, 
-    	           messages: ActiveModel::ArraySerializer.new(messages, each_serializer: MessagesSerializer) }
+    @messages = @conversation.messages
+    render layout: false
   end
 
   # GET /api/conversation/:conversation_id/messages/:id
