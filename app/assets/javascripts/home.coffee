@@ -10,4 +10,4 @@ $(document).on 'page:change', (e) ->
   setInterval (->
     $pull_chat()
     return
-  ), 100
+  ), 1000
