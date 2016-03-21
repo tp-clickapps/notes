@@ -56,3 +56,10 @@ $create_message = function(){
 	var message=$('div#message-area');
 	message.scrollTop(message[0].scrollHeight);
 }
+
+$(document).on('keydown', 'textarea.send-message', function(e) {
+if (e.which == 13) {
+   $create_message();
+   return false;    //<---- Add this line
+ }
+});
