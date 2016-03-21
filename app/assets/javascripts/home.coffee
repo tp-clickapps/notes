@@ -10,7 +10,7 @@ $(document).on 'click', 'a#send-message', (e) ->
 		data: "message": {"body": body}
 		async: false
 		success: (data) ->
-			$('div#message-area').append data
+			$('div#message-area').append('<div class="media msg "><div class="media-body"><small class="pull-right time"><i class="fa fa-clock-o"></i>'+data.message.time+'</small><h5 class="media-heading">'+data.message.user+'</h5><small class="col-lg-10">'+data.message.body+'</small>');
 			$('textarea#reply').val('')
 		error: (e) ->
 			alert 'Error'

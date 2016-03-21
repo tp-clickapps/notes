@@ -22,7 +22,7 @@ class Api::MessagesController < ApplicationController
     @message = @conversation.messages.new message_params
     @message.user = current_user
     if @message.save
-      render layout: false
+      render json: { success: true, message: MessagesSerializer.new(@message) }
     else
       render json: { success: false, errors: @message.errors.full_messages.join(", ") }
     end
